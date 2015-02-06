@@ -12,7 +12,9 @@ class Connector {
 
     function runQuery($query) {
         $link = mysql_connect(HOSTNAME, USERNAME, PASSWORD);
+   
         mysql_select_db($this->dbName, $link);
+
         mysql_query($query, $link);
         $this->clConnection = new mysqli(HOSTNAME, USERNAME, PASSWORD, $this->dbName);
 
