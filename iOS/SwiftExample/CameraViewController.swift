@@ -23,13 +23,19 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 //    }
 //    
     @IBOutlet var backgroundImage:UIImageView?
-    
     @IBOutlet weak var imageControl: UIImageView!
     var cameraUI:UIImagePickerController = UIImagePickerController()
-
+    @IBOutlet weak var pickButton: UIButton!
+    
+    @IBOutlet weak var hintView: UITextField!
+    @IBOutlet weak var radioButton: UISegmentedControl!
+    
+    @IBOutlet weak var mangleButton: UIButton!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
+        staticTextView.allowsEditingTextAttributes = false
     }
     
     required init(coder aDecoder: NSCoder)
@@ -41,13 +47,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.presentCamera()
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func cameraShow()
@@ -55,15 +58,27 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.presentCamera()
     }
     
-    @IBOutlet weak var pickButton: UIButton!
     //pragma mark - Camera
     
     @IBAction func onAddHuntDone(sender: AnyObject) {
+        
+        // http://rushg.me/TreasureHunt/hunt.php?q=addHunt&name=first&image=&hint&coordinates=VARCHAR&created_user=int&count_finish_users=int
+        var bodyData = "q=addHunt&hint=" + hintView.text
+        
+        let URL: NSURL = NSURL(string: "http://rushg.me/TreasureHunt/hunt.php?")!
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL:URL)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+        {
+                (response, data, error) in
+                debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
+        }
+        
     }
     func presentCamera()
     {
         cameraUI = UIImagePickerController()
-        
         cameraUI.delegate = self
         cameraUI.sourceType = UIImagePickerControllerSourceType.PhotoLibrary //camera
         cameraUI.mediaTypes = [kUTTypeImage]
@@ -76,9 +91,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     //pragma mark- Image
     @IBAction func onEditBegin(sender: AnyObject) {
         staticTextView.text = "Show your name"
-        
+    
     }
     
+    @IBOutlet weak var navigationControl: UINavigationItem!
     func imagePickerControllerDidCancel(picker:UIImagePickerController)
     {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -92,6 +108,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageToSave = info.objectForKey(UIImagePickerControllerOriginalImage) as UIImage
         imageControl.image = imageToSave
         pickButton.hidden = true
+        mangleButton.hidden = false
+        mangleButton.highlighted = true
         UIImageWriteToSavedPhotosAlbum(imageToSave, nil, nil, nil)
         self.savedImage()
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -105,6 +123,16 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         alert.delegate = self
         alert.addButtonWithTitle("Awesome")
         alert.show()
+    }
+    
+    @IBAction func onMangleClick(sender: AnyObject) {
+        let beginImage =  CIImage(image: imageControl.image)
+   
+        let filter = CIFilter(name: "CISepiaTone")
+        filter.setValue(beginImage, forKey: kCIInputImageKey)
+        filter.setValue(0.5, forKey: kCIInputIntensityKey)
+        let newImage = UIImage(CIImage: filter.outputImage)
+        imageControl.image = newImage
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int)
