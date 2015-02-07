@@ -24,6 +24,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 //    
     @IBOutlet var backgroundImage:UIImageView?
     
+    @IBOutlet weak var imageControl: UIImageView!
     var cameraUI:UIImagePickerController = UIImagePickerController()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -40,7 +41,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presentCamera()
+       // self.presentCamera()
         // Do any additional setup after loading the view.
     }
     
@@ -54,11 +55,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.presentCamera()
     }
     
+    @IBOutlet weak var pickButton: UIButton!
     //pragma mark - Camera
     
+    @IBAction func onAddHuntDone(sender: AnyObject) {
+    }
     func presentCamera()
     {
         cameraUI = UIImagePickerController()
+        
         cameraUI.delegate = self
         cameraUI.sourceType = UIImagePickerControllerSourceType.PhotoLibrary //camera
         cameraUI.mediaTypes = [kUTTypeImage]
@@ -66,8 +71,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.presentViewController(cameraUI, animated: true, completion: nil)
     }
+    @IBOutlet weak var staticTextView: UITextField!
     
     //pragma mark- Image
+    @IBAction func onEditBegin(sender: AnyObject) {
+        staticTextView.text = "Show your name"
+        
+    }
     
     func imagePickerControllerDidCancel(picker:UIImagePickerController)
     {
@@ -80,7 +90,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         var imageToSave:UIImage
         
         imageToSave = info.objectForKey(UIImagePickerControllerOriginalImage) as UIImage
-        
+        imageControl.image = imageToSave
+        pickButton.hidden = true
         UIImageWriteToSavedPhotosAlbum(imageToSave, nil, nil, nil)
         self.savedImage()
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -99,6 +110,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int)
     {
         NSLog("Did dismiss button: %d", buttonIndex)
-        self.presentCamera()
+       // self.presentCamera()
     }
 }
