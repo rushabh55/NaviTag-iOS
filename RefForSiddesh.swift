@@ -1,6 +1,5 @@
 
 import UIKit
-import CoreLocation
 import MobileCoreServices
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
@@ -22,9 +21,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 //            self.presentViewController(imag, animated: true, completion: nil)
 //        }
 //    }
-    @IBOutlet weak var blurSlider: UISlider!
 //    
-    
     @IBOutlet var backgroundImage:UIImageView?
     @IBOutlet weak var imageControl: UIImageView!
     var cameraUI:UIImagePickerController = UIImagePickerController()
@@ -34,10 +31,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var radioButton: UISegmentedControl!
     
     @IBOutlet weak var mangleButton: UIButton!
-    
-//    var locManager : CLLocationManager = CLLocationManager();
-    
-    var loc : LocationManager = LocationManager();
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -49,23 +42,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     {
         super.init(coder: aDecoder)
     }
-    
-    func getFilterName() -> String{
-        let rand = arc4random()
-        let dict = ["CIMaskedVariableBlur", "CIMedianBlur", "CIMotioinBlur", "CINoiceReduction", "CIZoomBlur", "CIBumpDistortion", "CIDistortionLinear", "CICircleSplashDistortion", "CIDroste", "CIHoleDistortion"]
-        let c = UInt32(dict.count)
-        var i = Int(rand % c)
-        var res =  dict[i]
-        debugPrint(res)
-        return res
-    }
 
     //pragma mark - View
     
     override func viewDidLoad() {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-
-        debugPrint(appDelegate.userName)
         super.viewDidLoad()
     }
     
@@ -77,26 +57,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     {
         self.presentCamera()
     }
-    
+    // MARK : Image Serialization
     //pragma mark - Camera
-    
-    @IBAction func onAddHuntDone(sender: AnyObject) {
-        
-        // http://rushg.me/TreasureHunt/hunt.php?q=addHunt&name=first&image=&hint&coordinates=VARCHAR&created_user=int&count_finish_users=int
-        var bodyData = "q=addHunt&hint=" + hintView.text + loc.getLat().description + "," + loc.getLong().description
-        
-        let URL: NSURL = NSURL(string: "http://rushg.me/TreasureHunt/hunt.php?")!
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL:URL)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
-        {
-                (response, data, error) in
-                debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
-        }
-        
-    }
-    
     func mimeTypeForPath(path: String) -> String {
         let pathExtension = path.pathExtension
         
@@ -107,7 +69,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         return "application/octet-stream";
     }
-    
     func createBodyWithParameters(request : NSMutableURLRequest) -> NSData {
         let boundary = "----------SwIfTeRhTtPrEqUeStBoUnDaRy"
         let contentType = "multipart/form-data; boundary=\(boundary)"
@@ -135,7 +96,32 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         body.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         return body
     }
+
     
+    @IBAction func onAddHuntDone(sender: AnyObject) {
+        
+        // http://rushg.me/TreasureHunt/hunt.php?q=addHunt&name=first&image=&hint&coordinates=VARCHAR&created_user=int&count_finish_users=int
+        var selected : Bool = false
+        if radioButton.selectedSegmentIndex == 1 {
+            selected = true
+        }
+        else {
+            selected = false
+        }
+        let img = CIImage(image: imageControl.image)
+        
+        var bodyData = "q=addHunt&hint=" + hintView.text + "show_user" + selected.description
+        let URL: NSURL = NSURL(string: "http://rushg.me/TreasureHunt/hunt.php?")!
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL:URL)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+        {
+                (response, data, error) in
+                debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
+        }
+        
+    }
     func presentCamera()
     {
         cameraUI = UIImagePickerController()
@@ -143,7 +129,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         cameraUI.sourceType = UIImagePickerControllerSourceType.PhotoLibrary //camera
         cameraUI.mediaTypes = [kUTTypeImage]
         cameraUI.allowsEditing = false
-        
         self.presentViewController(cameraUI, animated: true, completion: nil)
     }
     @IBOutlet weak var staticTextView: UITextField!
@@ -169,8 +154,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageControl.image = imageToSave
         pickButton.hidden = true
         mangleButton.hidden = false
-        blurSlider.hidden = false
-        mangleButton.highlighted = true
         UIImageWriteToSavedPhotosAlbum(imageToSave, nil, nil, nil)
         self.savedImage()
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -179,8 +162,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     func savedImage()
     {
         var alert:UIAlertView = UIAlertView()
-        alert.title = "Saved!"
-        alert.message = "Now hit the Magic Wand to see the Magic"
+        alert.title = "Awesome!"
+        alert.message = "Now Mangle this image!"
         alert.delegate = self
         alert.addButtonWithTitle("Awesome")
         alert.show()
@@ -188,59 +171,17 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func onMangleClick(sender: AnyObject) {
         let beginImage =  CIImage(image: imageControl.image)
-        let filter = CIFilter(name: getFilterName())
+   
+        let filter = CIFilter(name: "CISepiaTone")
         filter.setValue(beginImage, forKey: kCIInputImageKey)
-        var val = blurSlider.value
-        filter.setValue(val, forKey: kCIInputIntensityKey)
+        filter.setValue(0.5, forKey: kCIInputIntensityKey)
         let newImage = UIImage(CIImage: filter.outputImage)
         imageControl.image = newImage
-        blurSlider.hidden = true
-        mangleButton.hidden = true
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int)
     {
         NSLog("Did dismiss button: %d", buttonIndex)
        // self.presentCamera()
-    }
-    
-    class LocationManager : NSObject, CLLocationManagerDelegate {
-        
-            override func isEqual(anObject: AnyObject?) -> Bool {
-                    return super.isEqual(anObject)
-                }
-        
-            var _lat : CLLocationDegrees = CLLocationDegrees()
-            var _long : CLLocationDegrees = CLLocationDegrees()
-        
-            func getLat() -> CLLocationDegrees{
-                    return self._lat
-                }
-        
-            func getLong() -> CLLocationDegrees {
-                    return self._long
-                }
-            var _manager : CLLocationManager = CLLocationManager()
-        
-            func initialize() {
-                    _manager = CLLocationManager()
-                    _manager.delegate = self
-                    _manager.desiredAccuracy = kCLLocationAccuracyBest
-                    _manager.startUpdatingLocation()
-                }
-        
-            func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-                    CLGeocoder().reverseGeocodeLocation(_manager.location, completionHandler: {(placemarks, error) -> Void in
-                        if placemarks.count > 0 {
-                            let pm = placemarks[0] as CLPlacemark
-                            var t : CLPlacemark = pm
-                            self._lat = t.location.coordinate.latitude
-                            self._long = t.location.coordinate.longitude
-                        }
-                        else {
-                            debugPrint(error)
-                        }
-                    })
-                }
     }
 }

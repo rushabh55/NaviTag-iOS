@@ -64,6 +64,7 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = tableArray.objectAtIndex(indexPath.row) as NSString
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.greenColor()
+        cell.textLabel?.font = UIFont.systemFontOfSize(15)
         return cell
     }
     
@@ -84,7 +85,7 @@ class TableViewController: UITableViewController {
             
             alert.delegate = self
             alert.title = rowTitle
-            alert.message = "You selected row \(rowToUseInAlert)"
+//            alert.message = "You selected row \(rowToUseInAlert)"
             alert.addButtonWithTitle("OK")
             
             alert.show()
