@@ -1,13 +1,10 @@
 
 import UIKit
-import SpriteKit
 import CoreLocation
 import MapKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     let fieldMask : UInt32 = 0b1;
-    
-    
     let categoryMask: UInt32 = 0b1;
     var name = String()
     
