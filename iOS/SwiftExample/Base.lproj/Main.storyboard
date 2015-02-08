@@ -128,7 +128,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wf8-3g-qWu" kind="push" id="WfQ-Sr-6bb"/>
+                                    <segue destination="3Jw-ih-xts" kind="push" id="73j-BF-VBh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MT-jK-mMs" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
@@ -160,34 +160,24 @@
             </objects>
             <point key="canvasLocation" x="1023" y="296"/>
         </scene>
-        <!--Web View Controller-->
-        <scene sceneID="VOw-Q8-ULY">
+        <!--Dashboard Controller-->
+        <scene sceneID="peU-Za-qkr">
             <objects>
-                <viewController id="wf8-3g-qWu" customClass="WebViewController" customModule="SwiftExample" sceneMemberID="viewController">
+                <viewController id="3Jw-ih-xts" customClass="DashboardController" customModule="SwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3O0-E3-k1G"/>
-                        <viewControllerLayoutGuide type="bottom" id="NIx-Kj-uFu"/>
+                        <viewControllerLayoutGuide type="top" id="4P1-uq-EJu"/>
+                        <viewControllerLayoutGuide type="bottom" id="d9M-dr-scJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="B6u-0k-lLM">
+                    <view key="view" contentMode="scaleToFill" id="qVf-Ly-VgA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K28-0f-qxu">
-                                <rect key="frame" x="0.0" y="64" width="325" height="416"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="P8Q-XB-F0Q"/>
-                    <connections>
-                        <outlet property="webView" destination="K28-0f-qxu" id="gp3-Ij-mYl"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="p25-A0-7th"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U1o-2E-873" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SJ0-PT-3NE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="987"/>
+            <point key="canvasLocation" x="1055" y="909"/>
         </scene>
         <!--Game-->
         <scene sceneID="uUf-GJ-RqD">
