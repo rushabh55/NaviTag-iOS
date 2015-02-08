@@ -86,13 +86,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView (mapView: MKMapView!,
         viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-            
             var pinView:MKPinAnnotationView = MKPinAnnotationView()
             pinView.annotation = annotation
             pinView.pinColor = MKPinAnnotationColor.Red
             pinView.animatesDrop = true
             pinView.canShowCallout = true
-            
             return pinView
     }
     
