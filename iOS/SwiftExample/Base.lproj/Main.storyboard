@@ -141,7 +141,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-1W-njR" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="10" y="281" width="83" height="30"/>
+                                <rect key="frame" x="3" y="281" width="83" height="30"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="View Game">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -165,6 +165,15 @@
                                     <segue destination="7RA-yL-fnV" kind="push" id="UVz-K3-vd8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEt-GX-fa6">
+                                <rect key="frame" x="198" y="395" width="122" height="30"/>
+                                <state key="normal" title="CheckIn here!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="crB-gD-OVA" kind="push" id="FmW-EK-RnB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -181,11 +190,55 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="map" destination="ilH-ei-Ug6" id="Mmy-eZ-hnx"/>
+                        <outlet property="viewController" destination="kh9-bI-dsS" id="L7o-bX-mfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1023" y="296"/>
+        </scene>
+        <!--Table Check In-->
+        <scene sceneID="1Ll-tQ-gEs">
+            <objects>
+                <tableViewController id="crB-gD-OVA" customClass="TableCheckIn" customModule="SwiftExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="w9s-44-vPB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="gYa-HK-9Ej" detailTextLabel="TPL-AR-5dz" style="IBUITableViewCellStyleValue1" id="Vgy-3G-0vC">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vgy-3G-0vC" id="0Sv-Yh-5HY">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gYa-HK-9Ej">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TPL-AR-5dz">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="crB-gD-OVA" id="EBm-fP-DwB"/>
+                            <outlet property="delegate" destination="crB-gD-OVA" id="MB8-Aa-m70"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ze5-fS-ial"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLX-KN-j0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696" y="656"/>
         </scene>
         <!--Dashboard Controller-->
         <scene sceneID="peU-Za-qkr">
@@ -306,7 +359,7 @@ Add: This is available to those that have over 50 points. This page allows you t
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpV-KF-eus" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="303"/>
+            <point key="canvasLocation" x="1858" y="303"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50b-LK-qIY">
