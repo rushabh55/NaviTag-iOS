@@ -49,10 +49,23 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     {
         super.init(coder: aDecoder)
     }
+    
+    func getFilterName() -> String{
+        let rand = arc4random()
+        let dict = ["CIMaskedVariableBlur", "CIMedianBlur", "CIMotioinBlur", "CINoiceReduction", "CIZoomBlur", "CIBumpDistortion", "CIDistortionLinear", "CICircleSplashDistortion", "CIDroste", "CIHoleDistortion"]
+        let c = UInt32(dict.count)
+        var i = Int(rand % c)
+        var res =  dict[i]
+        debugPrint(res)
+        return res
+    }
 
     //pragma mark - View
     
     override func viewDidLoad() {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+
+        debugPrint(appDelegate.userName)
         super.viewDidLoad()
     }
     
@@ -175,9 +188,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func onMangleClick(sender: AnyObject) {
         let beginImage =  CIImage(image: imageControl.image)
-        let filter = CIFilter(name: "CIBloom")
+        let filter = CIFilter(name: getFilterName())
         filter.setValue(beginImage, forKey: kCIInputImageKey)
-        filter.setValue(05, forKey: kCIInputIntensityKey)
+        var val = blurSlider.value
+        filter.setValue(val, forKey: kCIInputIntensityKey)
         let newImage = UIImage(CIImage: filter.outputImage)
         imageControl.image = newImage
         blurSlider.hidden = true

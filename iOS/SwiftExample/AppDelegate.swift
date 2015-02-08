@@ -1,11 +1,12 @@
 
 import UIKit
 
-@UIApplicationMain
+    @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-
+    var userName = String()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         println("start \(__FUNCTION__)")
