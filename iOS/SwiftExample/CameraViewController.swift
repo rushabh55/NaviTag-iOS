@@ -33,7 +33,13 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()    }
+        locationManager.startUpdatingLocation()
+        
+        scrollView.addSubview(self.view)
+        scrollView.contentSize = self.view.bounds.size
+        scrollView.delegate = self
+        scrollView.indicatorStyle = .White
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,20 +62,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
         return res
     }
     
-    //pragma mark - View
-    
-    override func viewDidLoad() {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        //self.view = self.scrollView
-        
-        // setup the scroll view
-        
-        scrollView.addSubview(self.view)
-        scrollView.contentSize = self.view.bounds.size
-        scrollView.delegate = self
-        scrollView.indicatorStyle = .White
-        super.viewDidLoad()
-    }
+    //pragma mark - Vie
     
     func scrollViewDidScroll(scrollView: UIScrollView){
         /* Gets called when user scrolls or drags */
@@ -86,9 +79,6 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
             scrollView.alpha = 1
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
     
     // MARK: - CoreLocation Delegate Methods
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -129,13 +119,10 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
 
     }
     
-    
     @IBAction func cameraShow()
     {
         self.presentCamera()
     }
-    
-    //pragma mark - Camera
     
     @IBAction func onAddHuntDone(sender: AnyObject) {
         
