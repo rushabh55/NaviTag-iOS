@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THt-Oi-3QF">
-                                <rect key="frame" x="29" y="319" width="262" height="30"/>
+                                <rect key="frame" x="31" y="319" width="262" height="30"/>
                                 <state key="normal" title="Pick Image From Gallery">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -56,18 +56,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQE-kM-aDn">
-                                <rect key="frame" x="26" y="64" width="273" height="247"/>
-                            </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8A-YL-Nps">
-                                <rect key="frame" x="29" y="319" width="262" height="30"/>
-                                <state key="normal" title="Mangle!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZFR-iq-Cf1">
+                                <rect key="frame" x="25" y="319" width="236" height="31"/>
+                            </slider>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8A-YL-Nps">
+                                <rect key="frame" x="253" y="312" width="46" height="43"/>
+                                <state key="normal" title="Mangle!" image="magic_wand.png"/>
                                 <connections>
                                     <action selector="onMangleClick:" destination="hKc-Zw-bWd" eventType="touchDown" id="DtU-iE-NS0"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQE-kM-aDn">
+                                <rect key="frame" x="26" y="64" width="273" height="247"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -88,6 +89,7 @@
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <outlet property="backgroundImage" destination="XQE-kM-aDn" id="lXX-tv-siF"/>
+                        <outlet property="blurSlider" destination="ZFR-iq-Cf1" id="lnj-UF-fWf"/>
                         <outlet property="hintView" destination="cGm-To-9G5" id="I0F-BF-c0u"/>
                         <outlet property="imageControl" destination="XQE-kM-aDn" id="7EM-ix-UkM"/>
                         <outlet property="mangleButton" destination="O8A-YL-Nps" id="00A-5Y-T6a"/>
@@ -99,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwF-Py-j21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="-315"/>
+            <point key="canvasLocation" x="1525" y="-406"/>
         </scene>
         <!--Treasure Hunter-->
         <scene sceneID="ufC-wZ-h7g">
@@ -113,49 +115,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-1W-njR">
-                                <rect key="frame" x="121" y="151" width="78" height="30"/>
-                                <state key="normal" title="View Game">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="b2E-rT-I2x" kind="push" id="hah-qh-vTj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-Mi-Rqo">
-                                <rect key="frame" x="123" y="225" width="75" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-Mi-Rqo" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="216" y="341" width="82" height="30"/>
                                 <state key="normal" title="Dashboard">
+                                    <color key="titleColor" red="0.13716473776647178" green="0.44747113312941345" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="wf8-3g-qWu" kind="push" id="WfQ-Sr-6bb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWE-sn-Ss1">
-                                <rect key="frame" x="119" y="368" width="82" height="30"/>
-                                <state key="normal" title="Enter Game">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7RA-yL-fnV" kind="push" id="UVz-K3-vd8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MT-jK-mMs">
-                                <rect key="frame" x="121" y="298" width="78" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MT-jK-mMs" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="16" y="430" width="95" height="30"/>
                                 <state key="normal" title="Add a Hunt">
+                                    <color key="titleColor" red="0.13716473776647178" green="0.44747113312941345" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="hKc-Zw-bWd" kind="push" id="ahm-DB-Vle"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWE-sn-Ss1" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="201" y="430" width="109" height="30"/>
+                                <state key="normal" title="Enter Game">
+                                    <color key="titleColor" red="0.13716473776647178" green="0.44747113312941345" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7RA-yL-fnV" kind="push" id="UVz-K3-vd8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-1W-njR" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="22" y="341" width="83" height="30"/>
+                                <state key="normal" title="View Game">
+                                    <color key="titleColor" red="0.12274200334643259" green="0.4354478011583327" blue="0.53209832702020199" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="b2E-rT-I2x" kind="push" id="hah-qh-vTj"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ilH-ei-Ug6">
+                                <rect key="frame" x="10" y="39" width="300" height="251"/>
+                            </mapView>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Treasure Hunter" id="deA-8j-SSQ"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="7sD-FH-Rie"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Treasure Hunter" id="deA-8j-SSQ">
+                        <barButtonItem key="rightBarButtonItem" title="Help" style="plain" id="f7X-jp-vWG">
+                            <connections>
+                                <segue destination="HR7-E0-GYu" kind="push" id="Kkf-3P-VQk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="303"/>
+            <point key="canvasLocation" x="1023" y="296"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="VOw-Q8-ULY">
@@ -215,6 +235,40 @@
             </objects>
             <point key="canvasLocation" x="1647" y="895"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="blg-Qe-5zp">
+            <objects>
+                <viewController id="HR7-E0-GYu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E0v-2D-1kf"/>
+                        <viewControllerLayoutGuide type="bottom" id="FV5-br-2zn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1A9-Zz-RxP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="HELP" translatesAutoresizingMaskIntoConstraints="NO" id="8M7-CC-JkE">
+                                <rect key="frame" x="106" y="11" width="108" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfH-ii-Jh8">
+                                <rect key="frame" x="48" y="76" width="240" height="347"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eUJ-rp-Lt7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMr-IC-9nQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="1503"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="NnP-1b-wea">
             <objects>
@@ -267,13 +321,16 @@
             <point key="canvasLocation" x="352" y="303"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magic_wand.png" width="128" height="128"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="UVz-K3-vd8"/>
         <segue reference="08j-8n-Okd"/>
-        <segue reference="Q4x-gK-z3Z"/>
     </inferredMetricsTieBreakers>
 </document>
