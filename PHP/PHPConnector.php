@@ -1,5 +1,5 @@
 <?php
-define ("HOSTNAME", "rushg.me");
+define ("HOSTNAME", "localhost");
 define ("USERNAME", "rushjzvr_rushabh");
 define ("PASSWORD", "Rushabh%1");
 class Connector {
@@ -15,10 +15,10 @@ class Connector {
    
         mysql_select_db($this->dbName, $link);
 
-        mysql_query($query, $link);
-        $this->clConnection = new mysqli(HOSTNAME, USERNAME, PASSWORD, $this->dbName);
+       $result = mysql_query($query, $link);
+        // $this->clConnection = new mysqli(HOSTNAME, USERNAME, PASSWORD, $this->dbName);
 
-        $result = $this->clConnection->query($query);
+       // $result = $this->clConnection->query($query);
         return $result;
     }
 
