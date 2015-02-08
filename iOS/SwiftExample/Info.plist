@@ -28,5 +28,13 @@
 	<array>
 		<string>armv7</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Using location services to track your run</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Using location services to track your run</string>
+    <key>NSLocationUsageDescription</key>
+    <string>I need location</string>
+    <key>privacy - location usage description</key>
+    <string>I need Location</string>
 </dict>
 </plist>
