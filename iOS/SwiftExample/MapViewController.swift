@@ -19,9 +19,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+         
 //        self.mapView.delegate = self
-        let location = "249 Crittenden Way, Rochester, NY 14623"
+        let location = "1 Lomb Memorial Drive, Rochester, NY 14623"
         var geocoder:CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(location, {(placemarks, error) -> Void in
             
@@ -37,7 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
                 pointAnnotation.coordinate = coordinates
-                pointAnnotation.title = "Sidd+++++++++++esh Pillai"
+                pointAnnotation.title = "RIT"
                 
                 self.mapView?.addAnnotation(pointAnnotation)
                 self.mapView?.centerCoordinate = coordinates
