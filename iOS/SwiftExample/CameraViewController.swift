@@ -22,7 +22,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 //            self.presentViewController(imag, animated: true, completion: nil)
 //        }
 //    }
+    @IBOutlet weak var blurSlider: UISlider!
 //    
+    
     @IBOutlet var backgroundImage:UIImageView?
     @IBOutlet weak var imageControl: UIImageView!
     var cameraUI:UIImagePickerController = UIImagePickerController()
@@ -154,6 +156,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageControl.image = imageToSave
         pickButton.hidden = true
         mangleButton.hidden = false
+        blurSlider.hidden = false
         mangleButton.highlighted = true
         UIImageWriteToSavedPhotosAlbum(imageToSave, nil, nil, nil)
         self.savedImage()
@@ -164,7 +167,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     {
         var alert:UIAlertView = UIAlertView()
         alert.title = "Saved!"
-        alert.message = "Your picture was saved to Camera Roll"
+        alert.message = "Now hit the Magic Wand to see the Magic"
         alert.delegate = self
         alert.addButtonWithTitle("Awesome")
         alert.show()
@@ -172,12 +175,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func onMangleClick(sender: AnyObject) {
         let beginImage =  CIImage(image: imageControl.image)
-   
-        let filter = CIFilter(name: "CISepiaTone")
+        let filter = CIFilter(name: "CIBloom")
         filter.setValue(beginImage, forKey: kCIInputImageKey)
-        filter.setValue(0.5, forKey: kCIInputIntensityKey)
+        filter.setValue(05, forKey: kCIInputIntensityKey)
         let newImage = UIImage(CIImage: filter.outputImage)
         imageControl.image = newImage
+        blurSlider.hidden = true
+        mangleButton.hidden = true
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int)
