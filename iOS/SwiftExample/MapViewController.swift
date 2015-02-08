@@ -19,6 +19,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.init(coder: aDecoder)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        startConnection()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
