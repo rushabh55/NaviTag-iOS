@@ -5,9 +5,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-
+<<<<<<< HEAD
     var userName = String()
+    
+=======
 
+
+>>>>>>> 5884953b6d2ae842b86aa9affd35dbde86a60b9f
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         println("start \(__FUNCTION__)")

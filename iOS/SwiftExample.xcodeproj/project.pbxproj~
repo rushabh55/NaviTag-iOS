@@ -464,6 +464,7 @@
 				031A8D8B193DB57D00F4A6D2 /* Debug */,
 				031A8D8C193DB57D00F4A6D2 /* Release */,
 			);
+
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
