@@ -27,7 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-         
+         self.mapView?.mapType = MKMapType.Hybrid
 //        self.mapView.delegate = self
         let location = "1 Lomb Memorial Drive, Rochester, NY 14623"
         var geocoder:CLGeocoder = CLGeocoder()
