@@ -3,7 +3,7 @@ import UIKit
 import CoreLocation
 import MobileCoreServices
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     
 //    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
 //        println("i've got an image");
@@ -59,20 +59,35 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         debugPrint(res)
         return res
     }
-
+    
     //pragma mark - View
     
     override func viewDidLoad() {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        self.view = self.scrollView
+        //self.view = self.scrollView
         
         // setup the scroll view
-        self.scrollView.contentSize = CGSize(width:1234, height: 5678)
-        let sampleSubView = UIView()
-        self.view.addSubview(sampleSubView) // adds to the scroll view
         
-        self.scrollView.contentOffset = CGPoint(x: 10, y: 20)
+        scrollView.addSubview(self.view)
+        scrollView.contentSize = self.view.bounds.size
+        scrollView.delegate = self
+        scrollView.indicatorStyle = .White
         super.viewDidLoad()
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView){
+        /* Gets called when user scrolls or drags */
+        scrollView.alpha = 0.50
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+        /* Gets called only after scrolling */
+        scrollView.alpha = 1
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView!,
+        willDecelerate decelerate: Bool){
+            scrollView.alpha = 1
     }
     
     override func didReceiveMemoryWarning() {
