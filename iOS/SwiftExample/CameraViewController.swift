@@ -58,14 +58,25 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
     {
         super.init(coder: aDecoder)
     }
-  
+    
+    var keyName = String()
     func getFilterName() -> String{
         let rand = arc4random()
-        let dict = ["CIMaskedVariableBlur", "CISepiaTone", "CIBloom", "CINoiceReduction"]
+        let dict = ["CIVignette", "CISepiaTone","CIVignetteEffect", "CIBloom", "CIBoxBlur", "CIGaussianBlur",
+            "CIMaskedVariableBlur","CIEdgeWork", "CIMotionBlur", "CIComicEffect"]
         let c = UInt32(dict.count)
         var i = Int(rand % c)
         var res =  dict[i]
         debugPrint(res)
+        switch i {
+        case 1, 2, 3, 0: keyName = "inputIntensity"
+        case 4, 5,6,7, 8: keyName = "inputRadius"
+        default: keyName = ""
+        }
+        if res == ""
+        {
+            return getFilterName()
+        }
         return res
     }
     
@@ -240,10 +251,23 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
     
     @IBAction func onMangleClick(sender: AnyObject) {
         let beginImage =  CIImage(image: imageControl.image)
-        let filter = CIFilter(name: getFilterName())
+        let name = getFilterName()
+        let filter = CIFilter(name: name)
+        if filter == nil
+        {
+            onMangleClick(sender)
+            return
+        }
         filter.setValue(beginImage, forKey: kCIInputImageKey)
+        
         var val = blurSlider.value
-        filter.setValue(val, forKey: kCIInputIntensityKey)
+        if keyName == "" {
+            
+        }
+        else
+        {
+            filter.setValue(val, forKey: keyName)
+        }
         let newImage = UIImage(CIImage: filter.outputImage)
         imageControl.image = newImage
         blurSlider.hidden = true

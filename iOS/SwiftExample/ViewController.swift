@@ -80,7 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     debugPrint(url)
                     let request = NSURLRequest(URL: url)
                     NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())       {(response, data, error) in
-                        debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
+                     //   debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
                     }
                 }
                 
