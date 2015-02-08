@@ -1,62 +1,84 @@
 
 import UIKit
 import CoreLocation
+import Foundation
 import MobileCoreServices
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
+class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
     
-//    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-//        println("i've got an image");
-//    }
-//    
-//    @IBAction func capture(sender : UIButton) {
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
-//            println("Button capture")
-//            
-//            var imag = UIImagePickerController()
-//            imag.delegate = self
-//            imag.sourceType = UIImagePickerControllerSourceType.Camera;
-//            imag.mediaTypes = [kUTTypeImage]
-//            imag.allowsEditing = false
-//            
-//            self.presentViewController(imag, animated: true, completion: nil)
-//        }
-//    }
-//    
     @IBOutlet var backgroundImage:UIImageView?
     @IBOutlet weak var imageControl: UIImageView!
-    var cameraUI:UIImagePickerController = UIImagePickerController()
     @IBOutlet weak var pickButton: UIButton!
-    
     @IBOutlet weak var hintView: UITextField!
     @IBOutlet weak var radioButton: UISegmentedControl!
-    
     @IBOutlet weak var mangleButton: UIButton!
     
-//    var locManager : CLLocationManager = CLLocationManager();
+//    var L1: CLLocationCoordinate2D = CLLocationCoordinate2D(0.0,0.0)
     
-    var loc : LocationManager = LocationManager();
+    var cameraUI:UIImagePickerController = UIImagePickerController()
+
+    var locationManager: CLLocationManager!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        // Custom initialization
-        staticTextView.allowsEditingTextAttributes = false
+    var myLong: Double = 0.0
+    var myLat: Double = 0.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
     
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
+    
+    // MARK: - CoreLocation Delegate Methods
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        locationManager.stopUpdatingLocation()
+        if ((error) != nil) {
+            print(error)
+        }
+    }
 
-    //pragma mark - View
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        var str: String
+        switch(status){
+        case .NotDetermined:       str = "NotDetermined"
+        case .Restricted:          str = "Restricted"
+        case .Denied:              str = "Denied"
+        case .Authorized:          str = "Authorized"
+        case .AuthorizedWhenInUse: str = "AuthorizedWhenInUse"
+        }
+        println("locationManager auth status changed, \(str)")
+        
+        if( status == .Authorized || status == .AuthorizedWhenInUse ) {
+            locationManager.startUpdatingLocation()
+            println("startUpdatingLocation")
+        }
+    }
+
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("found \(locations.count) placemarks.")
+        if( locations.count > 0 ){
+            let location = locations[0] as CLLocation;
+            locationManager.stopUpdatingLocation()
+            //self.L1 = location
+            myLong = location.coordinate.latitude
+            myLat = location.coordinate.longitude
+            println("location updated, lat:\(location.coordinate.latitude), lon:\(location.coordinate.longitude), stop updating.")
+            
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func cameraShow()
     {
@@ -68,10 +90,11 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func onAddHuntDone(sender: AnyObject) {
         
         // http://rushg.me/TreasureHunt/hunt.php?q=addHunt&name=first&image=&hint&coordinates=VARCHAR&created_user=int&count_finish_users=int
-        var bodyData = "q=addHunt&hint=" + hintView.text + loc.getLat().description + "," + loc.getLong().description
+        var bodyData = "q=addHunt&hint=" + hintView.text + self.myLat.description + "," + self.myLong.description 
         
         let URL: NSURL = NSURL(string: "http://rushg.me/TreasureHunt/hunt.php?")!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL:URL)
+        
         request.HTTPMethod = "POST"
         request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
@@ -186,43 +209,4 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
        // self.presentCamera()
     }
     
-    class LocationManager : NSObject, CLLocationManagerDelegate {
-        
-            override func isEqual(anObject: AnyObject?) -> Bool {
-                    return super.isEqual(anObject)
-                }
-        
-            var _lat : CLLocationDegrees = CLLocationDegrees()
-            var _long : CLLocationDegrees = CLLocationDegrees()
-        
-            func getLat() -> CLLocationDegrees{
-                    return self._lat
-                }
-        
-            func getLong() -> CLLocationDegrees {
-                    return self._long
-                }
-            var _manager : CLLocationManager = CLLocationManager()
-        
-            func initialize() {
-                    _manager = CLLocationManager()
-                    _manager.delegate = self
-                    _manager.desiredAccuracy = kCLLocationAccuracyBest
-                    _manager.startUpdatingLocation()
-                }
-        
-            func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-                    CLGeocoder().reverseGeocodeLocation(_manager.location, completionHandler: {(placemarks, error) -> Void in
-                        if placemarks.count > 0 {
-                            let pm = placemarks[0] as CLPlacemark
-                            var t : CLPlacemark = pm
-                            self._lat = t.location.coordinate.latitude
-                            self._long = t.location.coordinate.longitude
-                        }
-                        else {
-                            debugPrint(error)
-                        }
-                    })
-                }
-    }
 }
