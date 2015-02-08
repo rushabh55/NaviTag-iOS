@@ -79,7 +79,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var err: NSError
         // throwing an error on the line below (can't figure out where the error message is)
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-        println(jsonResult)
+
+//        var aArray: AvailableHunts = AvailableHunts(JSONString: jsonResult.description)
+//        println(aArray.name1) // Output is "myUser"
+        
+        var arrayObjects: AnyObject? = jsonResult.valueForKey("status")
+        let zero = arrayObjects[1]
+        println(arrayObjects)
     }
     
 //       http://rushg.me/TreasureHunt/hunt.php?q=getNearestHunts&coord=number,number
@@ -105,6 +111,41 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    class AvailableHunts : NSObject {
+        var name1 : String = ""
+        var name2 : String = ""
+        var name3 : String = ""
+        var name4 : String = ""
+        var name5 : String = ""
+        var name6 : String = ""
+        var name7 : String = ""
+        var name8 : String = ""
+        var name9 : String = ""
+        
+        init(JSONString: String) {
+            super.init()
+            
+            var error : NSError?
+            let JSONData = JSONString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            
+            let JSONDictionary: Dictionary = NSJSONSerialization.JSONObjectWithData(JSONData!, options: nil, error: &error) as NSDictionary
+            
+            // Loop
+            for (key, value) in JSONDictionary {
+                let keyName = key as String
+                let keyValue: String = value as String
+                
+                // If property exists
+                if (self.respondsToSelector(NSSelectorFromString(keyName))) {
+                    self.setValue(keyValue, forKey: keyName)
+                }
+            }
+            // Or you can do it with using
+            // self.setValuesForKeysWithDictionary(JSONDictionary)
+            // instead of loop method above
+        }
     }
     
 }
