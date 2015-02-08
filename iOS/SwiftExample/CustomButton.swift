@@ -13,6 +13,5 @@ class MyCustomButton: UIButton {
         self.layer.borderWidth = 1.5
         self.backgroundColor = UIColor.blueColor()
         self.tintColor = UIColor.whiteColor()
-        
     }
 }
