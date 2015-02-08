@@ -19,6 +19,7 @@
 		03B0EEB119595EF00048D16D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0EEB019595EF00048D16D /* CameraViewController.swift */; };
 		03C94697195AC0C70055D2FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94696195AC0C70055D2FC /* MobileCoreServices.framework */; };
 		6785C6881A86D7E2005DFDDF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785C6871A86D7E2005DFDDF /* CustomButton.swift */; };
+		6FCC9E481A872761004D7FFE /* magic_wand.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCC9E471A872761004D7FFE /* magic_wand.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		03B0EEB019595EF00048D16D /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		03C94696195AC0C70055D2FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6785C6871A86D7E2005DFDDF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		6FCC9E471A872761004D7FFE /* magic_wand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magic_wand.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		031A8D68193DB57D00F4A6D2 = {
 			isa = PBXGroup;
 			children = (
+				6FCC9E451A87274B004D7FFE /* Assets */,
 				03345B6B197552AF002C0FF7 /* MapKit.framework */,
 				03C94696195AC0C70055D2FC /* MobileCoreServices.framework */,
 				031A8D73193DB57D00F4A6D2 /* SwiftExample */,
@@ -130,6 +133,22 @@
 				031A8D88193DB57D00F4A6D2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FCC9E451A87274B004D7FFE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6FCC9E461A872756004D7FFE /* Images */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		6FCC9E461A872756004D7FFE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6FCC9E471A872761004D7FFE /* magic_wand.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				031A8D7C193DB57D00F4A6D2 /* Main.storyboard in Resources */,
+				6FCC9E481A872761004D7FFE /* magic_wand.png in Resources */,
 				031A8D7E193DB57D00F4A6D2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
