@@ -71,6 +71,9 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
+                        </accessibility>
                     </view>
                     <navigationItem key="navigationItem" title="Add Hunt" id="HBa-xH-yGn">
                         <barButtonItem key="backBarButtonItem" title="Back" id="hdT-9R-DwH"/>
@@ -330,7 +333,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UVz-K3-vd8"/>
         <segue reference="08j-8n-Okd"/>
+        <segue reference="Q4x-gK-z3Z"/>
     </inferredMetricsTieBreakers>
 </document>
