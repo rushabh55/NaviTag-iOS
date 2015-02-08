@@ -34,7 +34,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var radioButton: UISegmentedControl!
     
     @IBOutlet weak var mangleButton: UIButton!
-    
+    let scrollView = UIScrollView(frame: UIScreen.mainScreen().bounds)
 //    var locManager : CLLocationManager = CLLocationManager();
     
     var loc : LocationManager = LocationManager();
@@ -52,7 +52,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func getFilterName() -> String{
         let rand = arc4random()
-        let dict = ["CIMaskedVariableBlur", "CIMedianBlur", "CIMotioinBlur", "CINoiceReduction", "CIZoomBlur", "CIBumpDistortion", "CIDistortionLinear", "CICircleSplashDistortion", "CIDroste", "CIHoleDistortion"]
+        let dict = ["CIMaskedVariableBlur", "CISepiaTone", "CIBloom", "CINoiceReduction"]
         let c = UInt32(dict.count)
         var i = Int(rand % c)
         var res =  dict[i]
@@ -64,8 +64,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-
-        debugPrint(appDelegate.userName)
+        self.view = self.scrollView
+        
+        // setup the scroll view
+        self.scrollView.contentSize = CGSize(width:1234, height: 5678)
+        let sampleSubView = UIView()
+        self.view.addSubview(sampleSubView) // adds to the scroll view
+        
+        self.scrollView.contentOffset = CGPoint(x: 10, y: 20)
         super.viewDidLoad()
     }
     
