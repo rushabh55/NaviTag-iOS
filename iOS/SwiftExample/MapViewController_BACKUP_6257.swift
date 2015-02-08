@@ -84,7 +84,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        println(aArray.name1) // Output is "myUser"
         
         var arrayObjects: AnyObject? = jsonResult.valueForKey("status")
+<<<<<<< HEAD
         //let zero = arrayObjects[1]
+=======
+//        let zero = arrayObjects[1]
+>>>>>>> c3ef6f36f163cfc68e72c9efc217580772197d34
         println(arrayObjects)
     }
     
