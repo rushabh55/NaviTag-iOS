@@ -39,6 +39,13 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
         scrollView.contentSize = self.view.bounds.size
         scrollView.delegate = self
         scrollView.indicatorStyle = .White
+        
+      
+        
+    }
+    
+    func zoomUpdate() {
+        
     }
     
     override func didReceiveMemoryWarning() {
