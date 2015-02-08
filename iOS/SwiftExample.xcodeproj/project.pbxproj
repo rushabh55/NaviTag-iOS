@@ -26,6 +26,7 @@
 		6FCC9E4C1A872CD0004D7FFE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCC9E4A1A872CD0004D7FFE /* spark.png */; };
 		6FE70C2F1A8730A7004654E3 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE70C2E1A8730A7004654E3 /* Help.png */; };
 		6FE70C311A873128004654E3 /* help-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE70C301A873128004654E3 /* help-128.png */; };
+		98127D241A87FCED002EAFA0 /* MainMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127D231A87FCED002EAFA0 /* MainMapController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		6FCC9E4A1A872CD0004D7FFE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		6FE70C2E1A8730A7004654E3 /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help.png; sourceTree = "<group>"; };
 		6FE70C301A873128004654E3 /* help-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-128.png"; sourceTree = "<group>"; };
+		98127D231A87FCED002EAFA0 /* MainMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMapController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,11 +90,8 @@
 		031A8D68193DB57D00F4A6D2 = {
 			isa = PBXGroup;
 			children = (
-
 				6FCC9E451A87274B004D7FFE /* Assets */,
-
 				674D3B601A871359008B70DB /* CoreLocation.framework */,
-
 				03345B6B197552AF002C0FF7 /* MapKit.framework */,
 				03C94696195AC0C70055D2FC /* MobileCoreServices.framework */,
 				031A8D73193DB57D00F4A6D2 /* SwiftExample */,
@@ -126,6 +125,7 @@
 				031A8D93193DCBE900F4A6D2 /* TableViewController.swift */,
 				031A8D7D193DB57D00F4A6D2 /* Images.xcassets */,
 				031A8D74193DB57D00F4A6D2 /* Supporting Files */,
+				98127D231A87FCED002EAFA0 /* MainMapController.swift */,
 			);
 			path = SwiftExample;
 			sourceTree = "<group>";
@@ -285,6 +285,7 @@
 				6785C6881A86D7E2005DFDDF /* CustomButton.swift in Sources */,
 				031A8D9A193DDD4100F4A6D2 /* WebViewController.swift in Sources */,
 				03B0EEB119595EF00048D16D /* CameraViewController.swift in Sources */,
+				98127D241A87FCED002EAFA0 /* MainMapController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

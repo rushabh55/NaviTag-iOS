@@ -42,7 +42,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.mapView?.addAnnotation(pointAnnotation)
                 self.mapView?.centerCoordinate = coordinates
                 self.mapView?.selectAnnotation(pointAnnotation, animated: true)
-                
+                self.mapView?.zoomEnabled = true
+                let mapCoord = coordinates
+                var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCoord, fromEyeCoordinate: mapCoord, eyeAltitude: 1000)
+                self.mapView?.setCamera(mapCamera, animated: true)
                 println("Added annotation to map view")
             }
             
