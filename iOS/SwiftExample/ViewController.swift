@@ -103,7 +103,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             animated: true,
             completion: nil)
         }
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blurred.png")!)
         self.title = "Hunt"
     }
     
