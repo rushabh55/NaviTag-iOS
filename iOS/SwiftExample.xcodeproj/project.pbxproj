@@ -27,6 +27,7 @@
 		6FE70C2F1A8730A7004654E3 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE70C2E1A8730A7004654E3 /* Help.png */; };
 		6FE70C311A873128004654E3 /* help-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE70C301A873128004654E3 /* help-128.png */; };
 		98127D241A87FCED002EAFA0 /* MainMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127D231A87FCED002EAFA0 /* MainMapController.swift */; };
+		98C6256A1A880FED00360770 /* TableCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C625691A880FED00360770 /* TableCheckIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		6FE70C2E1A8730A7004654E3 /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help.png; sourceTree = "<group>"; };
 		6FE70C301A873128004654E3 /* help-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help-128.png"; sourceTree = "<group>"; };
 		98127D231A87FCED002EAFA0 /* MainMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMapController.swift; sourceTree = "<group>"; };
+		98C625691A880FED00360770 /* TableCheckIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCheckIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				031A8D7D193DB57D00F4A6D2 /* Images.xcassets */,
 				031A8D74193DB57D00F4A6D2 /* Supporting Files */,
 				98127D231A87FCED002EAFA0 /* MainMapController.swift */,
+				98C625691A880FED00360770 /* TableCheckIn.swift */,
 			);
 			path = SwiftExample;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				031A8D94193DCBE900F4A6D2 /* TableViewController.swift in Sources */,
 				031A8D77193DB57D00F4A6D2 /* AppDelegate.swift in Sources */,
 				6785C6881A86D7E2005DFDDF /* CustomButton.swift in Sources */,
+				98C6256A1A880FED00360770 /* TableCheckIn.swift in Sources */,
 				031A8D9A193DDD4100F4A6D2 /* WebViewController.swift in Sources */,
 				03B0EEB119595EF00048D16D /* CameraViewController.swift in Sources */,
 				98127D241A87FCED002EAFA0 /* MainMapController.swift in Sources */,
