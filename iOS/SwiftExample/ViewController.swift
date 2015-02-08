@@ -2,7 +2,8 @@
 import UIKit
 import CoreLocation
 import MapKit
-
+import CoreImage
+import SpriteKit
 class ViewController: UIViewController, CLLocationManagerDelegate {
     let fieldMask : UInt32 = 0b1;
     let categoryMask: UInt32 = 0b1;
@@ -10,11 +11,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func setupTimerInterface() {
     }
+    
+    func animate(a : CGRect ) -> Void {
+//        let imgView = UIImageView()
+//        
+//        let skView = SKView()
+//        skView.frame = CGRectMake(0, 0, a.width, a.height)
+//    
+//        let skScene = SKScene()
+//        skScene.scaleMode = SKSceneScaleMode.Fill
+//        
+//        let t =
+//        t.position = CGPointMake(a.width * 0.5, 0.0)
+//        
+//        skScene.addChild(t)
+//        skView.presentScene(skScene)
+//        return imgView
+//        
+//        let scene = GameScene(size: view.bounds.size)
+//        let skView = view as SKView
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
+//        skView.ignoresSiblingOrder = true
+//        scene.scaleMode = .ResizeFill
+//        skView.presentScene(scene)
+    }
     let counter = Int()
     
+    @IBOutlet var viewController: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         setupTimerInterface()
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
@@ -32,13 +61,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 let mapCoord = coordinates
                 var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCoord, fromEyeCoordinate: mapCoord, eyeAltitude: 1000)
                 self.map?.setCamera(mapCamera, animated: true)
-                
-        
-            
-    
-
-        
-        
         
         if  appDelegate.userName == ""
         {
