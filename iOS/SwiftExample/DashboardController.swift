@@ -32,25 +32,6 @@ class DashboardController: UIViewController,  CLLocationManagerDelegate {
             print(error)
         }
     }
-    
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        var locationArray = locations as NSArray
-//        var currentLocation = locationArray.lastObject as CLLocation
-//        var locValue = currentLocation.coordinate
-//        
-//        var myLatString = NSString(format:"%f",locValue.latitude) as String
-//        self.myLat.text = myLatString
-//        
-//        var myLongString = NSString(format:"%f",locValue.longitude) as String
-//        self.myLong.text = myLongString
-//        
-//        //var locationArray = locations as NSArray
-//        //var locationObj = locationArray.lastObject as CLLocation
-//        //var coord = locationObj.coordinate
-//        println(myLatString)
-//        println(myLongString)
-//    }
-    
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         var str: String
         switch(status){
@@ -60,11 +41,11 @@ class DashboardController: UIViewController,  CLLocationManagerDelegate {
         case .Authorized:          str = "Authorized"
         case .AuthorizedWhenInUse: str = "AuthorizedWhenInUse"
         }
-        println("locationManager auth status changed, \(str)")
+      //  println("locationManager auth status changed, \(str)")
         
         if( status == .Authorized || status == .AuthorizedWhenInUse ) {
             locationManager.startUpdatingLocation()
-            println("startUpdatingLocation")
+    //        println("startUpdatingLocation")
         }
     }
     
