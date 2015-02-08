@@ -180,9 +180,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="a" destination="ilH-ei-Ug6" id="3aB-Ev-wDg"/>
                         <outlet property="map" destination="ilH-ei-Ug6" id="Mmy-eZ-hnx"/>
-                        <outlet property="mapControl" destination="ilH-ei-Ug6" id="a9W-SG-j0S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
