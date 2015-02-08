@@ -10,9 +10,7 @@ function addUser($name, $password, $email, $location) {
     }
     return "Fail";
 }
-UPDATE table_name
-SET column1=value1,column2=value2,...
-WHERE some_column=some_value;
+
 function edit_loc_id($id, $location){
 	$connector = new Connector();
     if (!$connector) die ("");
