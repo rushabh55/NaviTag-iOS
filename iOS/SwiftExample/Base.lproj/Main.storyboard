@@ -126,8 +126,8 @@
                                     <segue destination="3Jw-ih-xts" kind="push" id="73j-BF-VBh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7MT-jK-mMs" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="16" y="288" width="89" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7MT-jK-mMs" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="100" y="394" width="120" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add a Hunt"/>
                                 <state key="highlighted" title="Add a Hunt">
@@ -137,36 +137,22 @@
                                     <segue destination="hKc-Zw-bWd" kind="push" id="ahm-DB-Vle"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRd-1W-njR" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="118" y="288" width="84" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRd-1W-njR" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="100" y="300" width="120" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="View Game">
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="b2E-rT-I2x" kind="push" id="hah-qh-vTj"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="ilH-ei-Ug6">
-                                <rect key="frame" x="10" y="54" width="300" height="210"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEt-GX-fa6">
-                                <rect key="frame" x="210" y="410" width="100" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="CheckIn here!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="crB-gD-OVA" kind="push" id="FmW-EK-RnB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OWE-sn-Ss1" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="220" y="288" width="100" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OWE-sn-Ss1" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="100" y="349" width="120" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter Game">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,6 +161,21 @@
                                     <segue destination="7RA-yL-fnV" kind="push" id="UVz-K3-vd8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEt-GX-fa6" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="100" y="437" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Check-in">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="crB-gD-OVA" kind="push" id="FmW-EK-RnB"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="ilH-ei-Ug6">
+                                <rect key="frame" x="10" y="72" width="300" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -334,7 +335,7 @@ Add: This is available to those that have over 50 points. This page allows you t
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
