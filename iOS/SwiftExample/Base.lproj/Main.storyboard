@@ -22,10 +22,12 @@
                                     <action selector="cameraShow" destination="hKc-Zw-bWd" eventType="touchUpInside" id="iht-ZB-bX4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="La8-Z2-FGC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="La8-Z2-FGC" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
                                 <rect key="frame" x="27" y="433" width="262" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done TODO:Implement">
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Submit Hint">
+                                    <color key="titleColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -51,12 +53,6 @@
                                     <action selector="onEditBegin:" destination="hKc-Zw-bWd" eventType="editingDidBegin" id="XFh-uT-fyv"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Leave a Hint" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="cGm-To-9G5">
-                                <rect key="frame" x="24" y="357" width="273" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="ZFR-iq-Cf1">
                                 <rect key="frame" x="25" y="319" width="236" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,20 +69,26 @@
                                 <rect key="frame" x="26" y="64" width="273" height="247"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hint Message e.g. Name, Place, Event etc." borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="cGm-To-9G5">
+                                <rect key="frame" x="14" y="357" width="297" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
                         </accessibility>
                     </view>
                     <navigationItem key="navigationItem" title="Add Hunt" id="HBa-xH-yGn">
                         <barButtonItem key="backBarButtonItem" title="Back" id="hdT-9R-DwH"/>
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="plain" id="06Q-ZQ-P1Q">
+                        <barButtonItem key="leftBarButtonItem" image="ic_action_content_clear" style="plain" id="06Q-ZQ-P1Q">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="08j-8n-Okd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="plain" id="Vq4-Gs-7cV">
+                        <barButtonItem key="rightBarButtonItem" image="ic_action_action_done" style="plain" id="Vq4-Gs-7cV">
                             <connections>
                                 <segue destination="7RA-yL-fnV" kind="push" id="Q4x-gK-z3Z"/>
                             </connections>
@@ -366,7 +368,9 @@ Add: This is available to those that have over 50 points. This page allows you t
         </scene>
     </scenes>
     <resources>
+        <image name="ic_action_action_done" width="32" height="32"/>
         <image name="ic_action_alert_error-1" width="32" height="32"/>
+        <image name="ic_action_content_clear" width="32" height="32"/>
         <image name="magic_wand.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -375,7 +379,7 @@ Add: This is available to those that have over 50 points. This page allows you t
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="s9q-qo-Z0T"/>
-        <segue reference="UVz-K3-vd8"/>
+        <segue reference="Q4x-gK-z3Z"/>
+        <segue reference="08j-8n-Okd"/>
     </inferredMetricsTieBreakers>
 </document>
