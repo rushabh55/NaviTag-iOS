@@ -21,7 +21,7 @@ class TableCheckIn :UITableViewController, NSURLConnectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         startConnection()
-        self.title = "Game"
+        self.title = "Check-in"
     }
     
     override func viewDidAppear(animated: Bool)
