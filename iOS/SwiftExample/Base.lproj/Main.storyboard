@@ -181,7 +181,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Treasure Hunter" id="deA-8j-SSQ">
-                        <barButtonItem key="rightBarButtonItem" title="Help" style="plain" id="f7X-jp-vWG">
+                        <barButtonItem key="rightBarButtonItem" image="ic_action_alert_error-1" style="done" id="f7X-jp-vWG">
                             <connections>
                                 <segue destination="HR7-E0-GYu" kind="push" id="Kkf-3P-VQk"/>
                             </connections>
@@ -366,6 +366,7 @@ Add: This is available to those that have over 50 points. This page allows you t
         </scene>
     </scenes>
     <resources>
+        <image name="ic_action_alert_error-1" width="32" height="32"/>
         <image name="magic_wand.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
