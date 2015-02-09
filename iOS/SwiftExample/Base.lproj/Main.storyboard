@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="P0K-fG-x68">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -119,15 +120,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vam-Mi-Rqo" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="16" y="410" width="100" height="25"/>
+                                <rect key="frame" x="24" y="397" width="100" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dashboard"/>
                                 <connections>
                                     <segue destination="3Jw-ih-xts" kind="push" id="73j-BF-VBh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7MT-jK-mMs" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="100" y="394" width="120" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7MT-jK-mMs" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="24" y="364" width="120" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add a Hunt"/>
                                 <state key="highlighted" title="Add a Hunt">
@@ -137,8 +138,8 @@
                                     <segue destination="hKc-Zw-bWd" kind="push" id="ahm-DB-Vle"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRd-1W-njR" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="100" y="300" width="120" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRd-1W-njR" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="24" y="295" width="120" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="View Game">
@@ -151,21 +152,18 @@
                                     <segue destination="b2E-rT-I2x" kind="push" id="hah-qh-vTj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OWE-sn-Ss1" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="100" y="349" width="120" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OWE-sn-Ss1" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="24" y="331" width="120" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enter Game">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="Enter Game"/>
                                 <connections>
                                     <segue destination="7RA-yL-fnV" kind="push" id="UVz-K3-vd8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEt-GX-fa6" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
-                                <rect key="frame" x="100" y="437" width="120" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEt-GX-fa6" customClass="MyCustomButton" customModule="SwiftExample" customModuleProvider="target">
+                                <rect key="frame" x="24" y="430" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Check-in">
-                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -176,6 +174,20 @@
                                 <rect key="frame" x="10" y="72" width="300" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" text="POINTS: 100" id="VCq-XZ-cDj">
+                                <rect key="frame" x="179" y="240" width="125" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.40770537013376007" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trophy.png" highlightedImage="Trophy.png" id="8Lt-7V-N2m">
+                                <rect key="frame" x="201" y="300" width="119" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -366,6 +378,7 @@ Add: This is available to those that have over 50 points. This page allows you t
         </scene>
     </scenes>
     <resources>
+        <image name="Trophy.png" width="256" height="256"/>
         <image name="magic_wand.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
