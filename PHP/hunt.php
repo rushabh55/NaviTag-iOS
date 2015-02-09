@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/PHPConnector.php';
-function addHunt($name, $image, $hint, $coordinates, $created_user, $count_finished_users, $image_type) {
+function addHunt($name, $image, $hint, $coordinates, $created_user, $count_finished_users) {
     $connector = new Connector();
     if (!$connector) die ("");
-    $query = "INSERT INTO Hunt (id, name, image, hint, coordinates, created_user, count_finished_users, show_user, image_type) VALUES (null,'$name', '$image', '$hint', '$coordinates', '$created_user', '$count_finished_users', '$show_user','$image_type')";
+    $query = "INSERT INTO Hunt (id, name, image, hint, coordinates, created_user, count_finished_users, show_user) VALUES (null,'$name', '$image', '$hint', '$coordinates', '$created_user', '$count_finished_users', '$show_user')";
 
     $res = $connector->runQuery($query, $connector->dbName);
     if ( $res ) {
@@ -60,21 +60,19 @@ function getNearestHunts($coord){
 	
     
 }
-	if (isset ( $_POST['q'] )) {
+	if (isset ( $_GET['q'] )) {
 	    if ($_POST['q'] == 'addHunt') {
-		 $res = array ( 'status' => addHunt($_POST['name'], $_POST['image'], $_POST['hint'], $_POST['coordinates'], $_POST['created_user'], $_POST['count_finished_users'], $_POST['image_type']) );
+		 $res = array ( 'status' => addHunt($_POST['name'], $_POST['image'], $_POST['hint'], $_POST['coordinates'], $_POST['created_user'], $_POST['count_finished_users']) );
 		    echo json_encode($res, JSON_PRETTY_PRINT);
 	    } 
-		
-
-	}
-	
-	if($_GET['q'] == 'getNearestHunts'){
+		if($_GET['q'] == 'getNearestHunts'){
 			$coord = $_GET['coord'];
 			
 			$res = array ( 'status' => getNearestHunts($coord) );
 		    echo json_encode($res, JSON_PRETTY_PRINT);
 		}
+
+	}
 
 
 ?>
