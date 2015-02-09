@@ -83,9 +83,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        var aArray: AvailableHunts = AvailableHunts(JSONString: jsonResult.description)
 //        println(aArray.name1) // Output is "myUser"
         
-        var arrayObjects: AnyObject? = jsonResult.valueForKey("status")
+        //var arrayObjects: AnyObject? = jsonResult.valueForKey("status")
         //let zero = arrayObjects[1]
-        println(arrayObjects)
+       // println(arrayObjects)
     }
     
 //       http://rushg.me/TreasureHunt/hunt.php?q=getNearestHunts&coord=number,number
