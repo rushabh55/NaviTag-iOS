@@ -73,8 +73,8 @@ class TableCheckIn :UITableViewController, NSURLConnectionDelegate {
     func connectionDidFinishLoading(connection: NSURLConnection!) {
         var err: NSError
         // throwing an error on the line below (can't figure out where the error message is)
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-        jsonResult.copy(tableArray)
+       // var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+     //   jsonResult.copy(tableArray)
         
     }
     
