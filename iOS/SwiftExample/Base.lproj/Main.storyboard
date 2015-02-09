@@ -289,17 +289,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="HELP" id="8M7-CC-JkE">
-                                <rect key="frame" x="106" y="11" width="108" height="76"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="justified" selectable="NO" id="NfH-ii-Jh8">
+                                <rect key="frame" x="16" y="73" width="283" height="272"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" selectable="NO" id="NfH-ii-Jh8">
-                                <rect key="frame" x="16" y="95" width="283" height="347"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Dashboard: Give a list of active Hunts near your area. Pick one of these hunts to get started with the game. This also shows you the points you've earned. With more than 50 points you can create a new Hunt for others to play
 
 Map Page: Gives a more detailed list of all the hunts with their tasks
@@ -307,11 +300,12 @@ Map Page: Gives a more detailed list of all the hunts with their tasks
 Add: This is available to those that have over 50 points. This page allows you to add new Hunts. To add a new Hunt, select a photo, apply the magic filter to it, leave a hint for others and Post it! 
 
 </string>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="eUJ-rp-Lt7"/>
                 </viewController>
