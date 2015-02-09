@@ -17,7 +17,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Game"
+        self.title = "Ongoing Game"
     }
     
     override func viewDidAppear(animated: Bool)

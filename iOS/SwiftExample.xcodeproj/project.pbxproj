@@ -128,12 +128,12 @@
 				03B0EEB019595EF00048D16D /* CameraViewController.swift */,
 				6FCC9E491A872CD0004D7FFE /* Particle.sks */,
 				6FCC9E4A1A872CD0004D7FFE /* spark.png */,
+				98C625691A880FED00360770 /* TableCheckIn.swift */,
+				98127D231A87FCED002EAFA0 /* MainMapController.swift */,
 				031A8D99193DDD4100F4A6D2 /* WebViewController.swift */,
 				031A8D93193DCBE900F4A6D2 /* TableViewController.swift */,
 				031A8D7D193DB57D00F4A6D2 /* Images.xcassets */,
 				031A8D74193DB57D00F4A6D2 /* Supporting Files */,
-				98127D231A87FCED002EAFA0 /* MainMapController.swift */,
-				98C625691A880FED00360770 /* TableCheckIn.swift */,
 			);
 			path = SwiftExample;
 			sourceTree = "<group>";

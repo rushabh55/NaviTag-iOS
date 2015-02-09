@@ -102,7 +102,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             completion: nil)
         }
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blurred.png")!)
-        self.title = "Hunt"
+        self.title = "Hunt em Hooters"
     }
     
     @IBOutlet weak var map: MKMapView!
