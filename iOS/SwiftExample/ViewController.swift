@@ -46,8 +46,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         setupTimerInterface()
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-      
                 var coordinates:CLLocationCoordinate2D =  CLLocationCoordinate2DMake(appDelegate.lat, appDelegate.long)
                 
                 var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
@@ -77,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.name = t.text
                 if self.name != "" {
                     let url: NSURL = NSURL(string: "http://rushg.me/TreasureHunt/User.php?q=addUser&username=" + self.name)!
-                    debugPrint(url)
+                    //debugPrint(url)
                     let request = NSURLRequest(URL: url)
                     NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())       {(response, data, error) in
                      //   debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))

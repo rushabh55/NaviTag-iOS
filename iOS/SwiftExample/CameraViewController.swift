@@ -67,7 +67,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
         let c = UInt32(dict.count)
         var i = Int(rand % c)
         var res =  dict[i]
-        debugPrint(res)
+      //  debugPrint(res)
         switch i {
         case 1, 2, 3, 0: keyName = "inputIntensity"
         case 4, 5,6,7, 8: keyName = "inputRadius"
@@ -155,7 +155,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate, UIImage
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
         {
                 (response, data, error) in
-                debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
+           //     debugPrint(NSString(data: data, encoding: NSUTF8StringEncoding))
         }
         
     }
