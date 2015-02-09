@@ -145,7 +145,7 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="b2E-rT-I2x" kind="push" id="hah-qh-vTj"/>
@@ -268,7 +268,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Game" id="ahj-KB-B5f">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="5Hf-UY-UU0"/>
@@ -355,7 +355,7 @@ Add: This is available to those that have over 50 points. This page allows you t
         <!--Navigation Controller-->
         <scene sceneID="50b-LK-qIY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P0K-fG-x68" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P0K-fG-x68" customClass="NavigationController" customModule="SwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vVO-bz-bIa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -380,7 +380,7 @@ Add: This is available to those that have over 50 points. This page allows you t
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="08j-8n-Okd"/>
+        <segue reference="s9q-qo-Z0T"/>
         <segue reference="UVz-K3-vd8"/>
     </inferredMetricsTieBreakers>
 </document>
