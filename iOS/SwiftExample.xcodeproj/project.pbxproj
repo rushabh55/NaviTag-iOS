@@ -20,6 +20,7 @@
 		03C94697195AC0C70055D2FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94696195AC0C70055D2FC /* MobileCoreServices.framework */; };
 		674D3B611A871359008B70DB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D3B601A871359008B70DB /* CoreLocation.framework */; };
 		674D3B631A87BBF4008B70DB /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674D3B621A87BBF4008B70DB /* DashboardController.swift */; };
+		675010E11A883465002927D7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675010E01A883465002927D7 /* NavigationController.swift */; };
 		6785C6881A86D7E2005DFDDF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6785C6871A86D7E2005DFDDF /* CustomButton.swift */; };
 		6FCC9E481A872761004D7FFE /* magic_wand.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCC9E471A872761004D7FFE /* magic_wand.png */; };
 		6FCC9E4B1A872CD0004D7FFE /* Particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FCC9E491A872CD0004D7FFE /* Particle.sks */; };
@@ -59,6 +60,7 @@
 		03C94696195AC0C70055D2FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		674D3B601A871359008B70DB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		674D3B621A87BBF4008B70DB /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		675010E01A883465002927D7 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		6785C6871A86D7E2005DFDDF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		6FCC9E471A872761004D7FFE /* magic_wand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magic_wand.png; sourceTree = "<group>"; };
 		6FCC9E491A872CD0004D7FFE /* Particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Particle.sks; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				674D3B621A87BBF4008B70DB /* DashboardController.swift */,
+				675010E01A883465002927D7 /* NavigationController.swift */,
 				031A8D76193DB57D00F4A6D2 /* AppDelegate.swift */,
 				6785C6871A86D7E2005DFDDF /* CustomButton.swift */,
 				031A8D78193DB57D00F4A6D2 /* ViewController.swift */,
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675010E11A883465002927D7 /* NavigationController.swift in Sources */,
 				674D3B631A87BBF4008B70DB /* DashboardController.swift in Sources */,
 				031A8D79193DB57D00F4A6D2 /* ViewController.swift in Sources */,
 				03345B6A19755286002C0FF7 /* MapViewController.swift in Sources */,
