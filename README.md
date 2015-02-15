@@ -8,5 +8,5 @@ Here's the link to the complete project submission: http://challengepost.com/sof
 
 Project Developers:
 Siddesh Pillai (http://siddeshpillai.me/)
-Sapna Ganesh  (https://github.com/sapna4g)
+apna Ganesh  (https://github.com/sapna4g)
 Rushabh Gosar (http://rushg.me)
